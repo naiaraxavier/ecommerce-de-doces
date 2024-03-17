@@ -1,1 +1,1 @@
-# Ecommerce de doces em construção 🚧 🏗️
+# E-commerce de doces em construção 🚧 🏗️
