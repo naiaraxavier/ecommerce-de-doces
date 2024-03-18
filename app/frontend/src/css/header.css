@@ -1,0 +1,20 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 3em;
+}
+
+.header-logo {
+  margin-left: 3em;
+}
+
+.header-btns {
+  margin-right: 3em;
+}
+
+.icon-header {
+  font-size: 1.8em;
+  margin-left: 30px;
+  cursor: pointer;
+}
