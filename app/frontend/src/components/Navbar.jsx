@@ -14,10 +14,10 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a href="#about"> Sobre mim</a>
+          <a href="#about"> Sobre </a>
         </li>
         <li>
-          <a href="#contacts"> Me contate </a>
+          <a href="#contacts"> Contatos </a>
         </li>
       </ul>
     </nav>
