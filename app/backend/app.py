@@ -7,6 +7,7 @@ from flask_login import (
     LoginManager,
     login_required,
     logout_user,
+    current_user,
 )  # noqa
 
 app = Flask(__name__)
@@ -29,7 +30,7 @@ class User(db.Model, UserMixin):
     cart = db.relationship("CartItem", backref="user", lazy=True)
 
 
-# Produto (id, name, price, description)
+# Produto (id, name, price, description, image)
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
@@ -158,11 +159,73 @@ def get_products():
     return jsonify(product_list)
 
 
-# Definir uma rota raiz (página inicial) e
-# a função que será executada ao requisitar
-@app.route("/")
-def hello_world():
-    return "Hello World"
+# Checkout
+@app.route("/api/cart/add/<int:product_id>", methods=["POST"])
+@login_required
+def add_to_cart(product_id):
+    user = User.query.get(int(current_user.id))
+    product = Product.query.get(product_id)
+
+    if user and product:
+        cart_item = CartItem(user_id=user.id, product_id=product.id)
+        db.session.add(cart_item)
+        db.session.commit()
+        return jsonify({"message": "Item added to the cart successfully"})
+    return jsonify({"message": "Failed to add item to the cart"}), 400
+
+
+@app.route("/api/cart/remove/<int:product_id>", methods=["DELETE"])
+@login_required
+def remove_from_cart(product_id):
+    cart_item = CartItem.query.filter_by(
+        user_id=current_user.id, product_id=product_id
+    ).first()
+    if cart_item:
+        db.session.delete(cart_item)
+        db.session.commit()
+        return jsonify({"message": "Item removed from the cart successfully"})
+    return jsonify({"message": "Failed to remove item from the cart"}), 400
+
+
+@app.route("/api/cart", methods=["GET"])
+@login_required
+def view_cart():
+    user = User.query.get(int(current_user.id))
+
+    # Para melhora de performace (vai no banco apenas 1 vez):
+    cart_items = (
+        db.session.query(CartItem, Product)
+        .join(Product, CartItem.product_id == Product.id)
+        .filter(CartItem.user_id == user.id)
+        .all()
+    )
+
+    # cart_items = user.cart
+    cart_content = []
+    for cart_item, product in cart_items:
+        # isso pode gerar problema de performace, a cada interação ir no banco
+        # product = Product.query.get(cart_item.product_id)
+        cart_content.append(
+            {
+                "id": cart_item.id,
+                "user_id": cart_item.user_id,
+                "product_id": cart_item.product_id,
+                "product_name": product.name,
+                "product_price": product.price,
+            }
+        )
+    return jsonify(cart_content)
+
+
+@app.route("/api/cart/checkout", methods=["POST"])
+@login_required
+def checkout():
+    user = User.query.get(int(current_user.id))
+    cart_items = user.cart
+    for cart_item in cart_items:
+        db.session.delete(cart_item)
+    db.session.commit()
+    return jsonify({"message": "Checkout successful. Cart has been clared"})
 
 
 if __name__ == "__main__":
