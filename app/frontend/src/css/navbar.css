@@ -1,7 +1,12 @@
 .navbar {
   background-color: #000;
   color: #fff;
-  padding: 1.5em;
+  left: 0;
+  right: 0;
+  padding: 1.3em;
+  position: fixed;
+  top: 3em;
+  z-index: 1000;
 }
 
 .navbar ul {
