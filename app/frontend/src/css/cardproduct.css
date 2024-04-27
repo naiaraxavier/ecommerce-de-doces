@@ -46,3 +46,15 @@
   width: 300px;
   cursor: pointer;
 }
+
+.swal2-small {
+  width: 200px;
+  height: auto;
+  padding: 10px;
+}
+
+.swal2-title-small {
+  color: #ff90ae;
+  font-size: 15px;
+  padding: 0;
+}

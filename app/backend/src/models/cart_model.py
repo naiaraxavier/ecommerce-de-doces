@@ -5,7 +5,7 @@ from database.db import db
 class CartModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(
-        db.Integer, db.ForeignKey("user_model.id"), nullable=False
+        db.Integer, db.ForeignKey("user_model.id"), nullable=True
     )  # noqa
     product_id = db.Column(
         db.Integer, db.ForeignKey("product_model.id"), nullable=False
