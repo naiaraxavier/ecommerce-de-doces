@@ -1,5 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// // import 'bootstrap/dist/js/bootstrap.bundle';
 import { Route, Routes } from 'react-router-dom';
 import Products from './pages/Products';
 import Home from './pages/Home';
