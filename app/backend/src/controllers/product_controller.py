@@ -97,6 +97,7 @@ def get_products():
             "name": product.name,
             "price": product.price,
             "image": product.image,
+            "description": product.description,
         }
         product_list.append(product_data)
     return jsonify(product_list)

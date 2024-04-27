@@ -1,0 +1,17 @@
+.privacy-main {
+  max-width: 60%;
+  margin: 5em auto;
+  padding: 10px;
+}
+
+.privacy-main section {
+  margin-bottom: 2em;
+}
+
+.privacy-main {
+  text-align: justify;
+}
+
+.pink-text {
+  color: #ff69b4;
+}

@@ -1,13 +1,24 @@
+import { useEffect, useRef, useContext } from 'react';
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 import popular from "../images/popular-products.png";
 import { IoPersonSharp } from "react-icons/io5";
 import photo from "../images/photo-about.png";
+import ScrollContext from '../context/ScrollContext';
 import "../css/about.css";
 
 function About() {
+  const { scrollToSection } = useContext(ScrollContext);
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    if (scrollToSection === 'about') {
+      aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [scrollToSection]);
+
   return (
     <>
-    <section id="about" className="about-section">
+    <section ref={aboutRef} id="about" className="about-section">
       <div className="container-about">
         <div className="container-photo">
           <img src={ photo } alt="foto profissional" />

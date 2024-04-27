@@ -1,0 +1,20 @@
+.terms-main {
+  max-width: 60%;
+  margin: 5em auto;
+  padding: 20px;
+}
+
+.terms-main {
+  text-align: justify;
+}
+
+.pink-text {
+  color: #ff69b4;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: #ff69b4;
+  text-decoration: none;
+}
