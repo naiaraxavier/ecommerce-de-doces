@@ -10,12 +10,15 @@ function Navbar() {
     <nav className="navbar">
       <ul>
         <li>
-          <Link to="/" onClick={() => setScrollToSection('home')}>
+          <Link
+            to="/"
+            onClick={() => { window.scrollTo(0, 0), setScrollToSection('null') }}
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to="/products" onClick={() => setScrollToSection('products')}>
+          <Link to="/products" onClick={() => window.scrollTo(0, 0)}>
             Produtos
           </Link>
         </li>

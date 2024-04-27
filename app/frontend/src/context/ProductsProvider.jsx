@@ -28,8 +28,8 @@ function ProductsProvider({ children }) {
 
   return (
     <ProductsContext.Provider value={values}>
-    {children}
-  </ProductsContext.Provider>
+      {children}
+    </ProductsContext.Provider>
   )
 }
 

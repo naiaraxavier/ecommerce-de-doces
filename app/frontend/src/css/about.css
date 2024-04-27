@@ -32,10 +32,22 @@
 }
 
 #icon-arrow {
+  animation: moveDown 1s infinite alternate;
   color: #dc6786;
   font-size: 6em;
   margin-top: 1em;
 }
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(15px);
+  }
+}
+
 
 .container-about a {
   align-self: center;
@@ -77,6 +89,11 @@
   border-radius: 10px;
   background-color: #dc6786;
   margin-top: 2em;
+}
+
+.btn-menu:hover {
+  padding: 21px 31px;
+  background-color: #d67992;
 }
 
 .btn-menu span {

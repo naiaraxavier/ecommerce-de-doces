@@ -1,7 +1,8 @@
 import { useContext, useState, useEffect } from 'react';
 import ProductsContext from '../context/ProductsContext';
-import "../css/carousel.css";
+import { Link } from "react-router-dom";
 import Loading from './Loading';
+import "../css/carousel.css";
 
 function Carousel() {
   const { products, loading } = useContext(ProductsContext);
@@ -54,6 +55,9 @@ function Carousel() {
                   <div>
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
+                    <Link to="/products">
+                      <button>Ver produtos</button>
+                    </Link>
                   </div>
                 </div>
               </div>
