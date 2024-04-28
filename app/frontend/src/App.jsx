@@ -1,6 +1,7 @@
 import ProductsProvider from './context/ProductsProvider'
 import ScrollProvider from './context/ScrollProvider';
 import { Route, Routes } from 'react-router-dom';
+import CartProvider from './context/CartProvider';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
 import Privacy from './pages/Privacy';
@@ -14,15 +15,17 @@ function App() {
   return (
     <ScrollProvider>
       <ProductsProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/policy-and-privacy" element={<Privacy />} />
-          <Route path="/terms-and-conditions" element={<Terms />} />
-          <Route path="/faq" element={<Faq />} />
-        </Routes>
+        <CartProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/policy-and-privacy" element={<Privacy />} />
+            <Route path="/terms-and-conditions" element={<Terms />} />
+            <Route path="/faq" element={<Faq />} />
+          </Routes>
+        </CartProvider>
       </ProductsProvider>
     </ScrollProvider>
   )

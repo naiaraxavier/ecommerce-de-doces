@@ -1,14 +1,19 @@
 import ScrollContext from '../context/ScrollContext';
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext, useState } from 'react';
 import { MdPerson } from "react-icons/md";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
-import { useContext } from 'react';
+import Cart from './Cart';
 import "../css/header.css";
 
 function Header() {
   const { setScrollToSection } = useContext(ScrollContext);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
+  const handleCartClick = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   return (
     <header className="header">
@@ -24,14 +29,16 @@ function Header() {
       <div className="header-btns">
         <FaShoppingCart
           className="icon-header"
+          onClick={handleCartClick}
         />
         <Link to="/login">
           <MdPerson
             className="icon-header"
           />
         </Link>
-
       </div>
+
+      {isCartOpen && <Cart />}
     </header>
   )
 }

@@ -56,6 +56,7 @@ def view_cart():
                 "product_id": cart_item.product_id,
                 "product_name": product.name,
                 "product_price": product.price,
+                "product_image": product.image,
             }
         )
     return jsonify(cart_content)
