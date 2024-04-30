@@ -1,48 +1,13 @@
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 import PropTypes from 'prop-types';
 import "../css/cardproduct.css"
-import Swal from 'sweetalert2'
 
 function CardProduct({ product }) {
+  const { quantities, increaseQuantity, decreaseQuantity, addToCart } = useContext(CartContext);
 
-
-  // Função para adicionar o produto ao carrinho
-  const addToCart = async () => {
-    try {
-      // Fazendo uma requisição POST para a rota de adicionar ao carrinho
-      const response = await fetch(`http://localhost:5000/api/cart/add/${product.id}`, {
-        method: 'POST',
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro ao adicionar produto ao carrinho');
-      }
-
-      Swal.fire({
-        position: "bottom-end",
-        title: "Produto adicionado ao carrinho com sucesso!",
-        showConfirmButton: false,
-        timer: 1500,
-        customClass: {
-          popup: 'swal2-small',
-          title: 'swal2-title-small',
-          container: 'swal2-container',
-        }
-      });
-
-    } catch (error) {
-      console.error('Erro ao adicionar produto ao carrinho:', error);
-      Swal.fire({
-        position: "bottom-end",
-        title: "Erro ao adicionar o produto ao carrinho, tente novamente",
-        showConfirmButton: false,
-        timer: 1500,
-        customClass: {
-          popup: 'swal2-small',
-          title: 'swal2-title-small',
-          container: 'swal2-container',
-        }
-      });
-    }
+  const handleAddToCart = () => {
+    addToCart(product.id);
   };
 
   return (
@@ -57,14 +22,22 @@ function CardProduct({ product }) {
       <div className='product-content'>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
-        <p className='price'>
-          R$ {product.price.toLocaleString(
-            'pt-BR',
-            { minimumFractionDigits: 2 }
-          )}
-        </p>
+        <div>
+          <p className='price'>
+            {product.price && `R$ ${product.price.toLocaleString(
+              'pt-BR',
+              { minimumFractionDigits: 2 }
+            )}`}
+          </p>
+          <div className='btn-in-de'>
+            <button id="increaseBtn" onClick={() => increaseQuantity(product.id)}>+</button>
+            <span id='span-quantity'>{quantities[product.id] || 0}</span>
+            <button id="decreaseBtn" onClick={() => decreaseQuantity(product.id)}>-</button>
+          </div>
+        </div>
         <button
-          onClick={addToCart}
+          className='btn-add-cart'
+          onClick={handleAddToCart}
         >
           Adicionar ao carrinho
         </button>

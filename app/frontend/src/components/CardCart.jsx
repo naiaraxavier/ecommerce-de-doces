@@ -1,7 +1,15 @@
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 import PropTypes from 'prop-types';
 import '../css/cardcart.css'
 
 function CardCart({ product }) {
+  const { quantities, increaseQuantity, decreaseQuantity, removeCartItem } = useContext(CartContext);
+
+  const handleRemoveItem = () => {
+    removeCartItem(product.product_id);
+  };
+
   return (
     <div className="cart-product">
       <div className="cart-product-img">
@@ -13,20 +21,20 @@ function CardCart({ product }) {
 
         <div className="cart-price">
           <span>
-            R$ {product.product_price.toLocaleString(
+            {product.product_price && `R$ ${product.product_price.toLocaleString(
               'pt-BR',
               { minimumFractionDigits: 2 }
-            )}
+            )}`}
           </span>
           <div>
-            <button id="increaseBtn">+</button>
-            <span>0</span>
-            <button id="decreaseBtn">-</button>
+            <button id="increaseBtn" onClick={() => increaseQuantity(product.product_id)}>+</button>
+            <span>{quantities[product.product_id] || 0}</span>
+            <button id="decreaseBtn" onClick={() => decreaseQuantity(product.product_id)}>-</button>
           </div>
         </div>
 
         <div className="cart-btn-remove">
-          <button>Remover</button>
+          <button onClick={handleRemoveItem}>Remover</button>
         </div>
       </div>
     </div>
@@ -35,8 +43,10 @@ function CardCart({ product }) {
 
 CardCart.propTypes = {
   product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     product_name: PropTypes.string.isRequired,
     product_price: PropTypes.number.isRequired,
+    product_id: PropTypes.number.isRequired,
     product_image: PropTypes.string.isRequired,
   }).isRequired
 };

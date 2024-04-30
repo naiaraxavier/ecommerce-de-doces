@@ -1,20 +1,21 @@
 .cart-modal {
   position: fixed;
   top: 50%;
-  right: -90px;
+  right: 10px;
   transform: translate(0, -50%);
   z-index: 1000;
-  margin-top: 7em;
+  margin-top: 0.5em;
 }
 
 .cart-content {
   background-color: #F7F7F7;
   border-radius: 10px;
   padding: 2em;
-  width: 80%;
-  max-width: 750px;
+  width: auto;
+  max-width: 800px;
   overflow-y: auto;
   position: relative;
+  height: 100vh;
   max-height: 100vh;
   padding-bottom: 9em;
 }
@@ -91,4 +92,11 @@
 .btn-finalize a:hover {
   background-color: #f89eb6;
   padding: 13px 31px;
+}
+
+.empty-cart-message {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 400px;
 }

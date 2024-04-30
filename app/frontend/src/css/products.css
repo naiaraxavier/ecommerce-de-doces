@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   justify-content: center;
   overflow: hidden;
+  width: 100%;
 }
 
 .search-input {
