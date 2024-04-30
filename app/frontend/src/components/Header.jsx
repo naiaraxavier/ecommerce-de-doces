@@ -9,7 +9,9 @@ import "../css/header.css";
 
 function Header() {
   const { setScrollToSection } = useContext(ScrollContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, quantities } = useContext(CartContext);
+
+  const sumItens = Object.values(quantities).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
   const handleCartClick = () => {
     setIsCartOpen(!isCartOpen);
@@ -31,6 +33,7 @@ function Header() {
           className="icon-header"
           onClick={handleCartClick}
         />
+        {sumItens > 0 && <span className="cart-item-count">{sumItens}</span>}
         <Link to="/login">
           <MdPerson
             className="icon-header"
