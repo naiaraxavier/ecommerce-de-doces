@@ -1,4 +1,5 @@
 import ScrollContext from '../context/ScrollContext';
+import CartContext from '../context/CartContext';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdPerson } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -8,7 +9,13 @@ import "../css/header.css";
 
 function Header() {
   const { setScrollToSection } = useContext(ScrollContext);
+  const { isCartOpen, setIsCartOpen, quantities } = useContext(CartContext);
 
+  const sumItens = Object.values(quantities).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+  const handleCartClick = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   return (
     <header className="header">
@@ -24,13 +31,14 @@ function Header() {
       <div className="header-btns">
         <FaShoppingCart
           className="icon-header"
+          onClick={handleCartClick}
         />
+        {sumItens > 0 && <span className="cart-item-count">{sumItens}</span>}
         <Link to="/login">
           <MdPerson
             className="icon-header"
           />
         </Link>
-
       </div>
     </header>
   )

@@ -35,7 +35,7 @@
   font-weight: bold;
 }
 
-.product-content button {
+.btn-add-cart {
   background-color: #ff90ae;
   color: #fff;
   border-radius: 10px;
@@ -45,4 +45,33 @@
   height: 78px;
   width: 300px;
   cursor: pointer;
+}
+
+.product-content div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-in-de {
+  background-color: #ece7e7;
+  width: 157px;
+}
+
+#increaseBtn,
+#decreaseBtn {
+  background-color: #d3cfcf;
+  cursor: pointer;
+  width: 47px;
+}
+
+.swal2-small {
+  width: 200px;
+  height: auto;
+  padding: 10px;
+}
+
+.swal2-title-small {
+  color: #ff90ae;
+  font-size: 15px;
+  padding: 0;
 }

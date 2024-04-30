@@ -9,8 +9,9 @@
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 80%;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
 }
 
 .search-input {
