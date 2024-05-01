@@ -1,30 +1,23 @@
-import { useState, useContext } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-import logo from '../images/logo.png';
 import { useNavigate, Link } from 'react-router-dom';
-import '../css/login-register.css'
+import logo from '../images/logo.png';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
-import AuthContext from '../context/AuthContext';
-import CartContext from '../context/CartContext';
+import '../css/login-register.css'
 
-function Login() {
+function Register() {
   const [userData, setUserData] = useState({
     username: '',
     password: '',
   });
 
-  const { setIsAuthenticated } = useContext(AuthContext);
-  const { isCheckout } = useContext(CartContext)
-
   const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const navigate = useNavigate();
   const MIN_PASSWORD_LENGTH = 6;
 
-  const handleLogin = async () => {
-    const userInfo = JSON.stringify({ username: userData.username });
-    localStorage.setItem('user', userInfo);
+  const handleRegister = async () => {
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('http://localhost:5000/user/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,20 +26,24 @@ function Login() {
       });
 
       if (response.ok) {
-        // Login bem-sucedido, redirecionar para a página principal
-        setIsAuthenticated(true)
-
-        if (isCheckout) {
-          // Se a rota anterior foi /checkout, redirecione de volta para /checkout
-          navigate('/checkout');
-        } else {
-          // Senão, vá para a página de perfil
-          navigate('/profile');
-        }
-      } else {
-        // Se ocorrer um erro, exibir mensagem de erro
+        // Cadastro bem-sucedido, redirecionar para a página de login
         Swal.fire({
-          title: 'Usuário ou senha incorreto',
+          icon: 'success',
+          title: 'Cadastro realizado com sucesso!',
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: 'swal2-small',
+            title: 'swal2-title-small',
+            container: 'swal2-container',
+          }
+        });
+        navigate('/login');
+      } else {
+        // Se ocorrer um erro, exibir uma mensagem de erro
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro ao cadastrar usuário.',
           showConfirmButton: false,
           timer: 1500,
           customClass: {
@@ -69,7 +66,7 @@ function Login() {
         </div>
 
         <div className="login-form">
-          <h2 className="login-text">Login</h2>
+          <h2 className="login-text">Cadastro</h2>
 
           <label htmlFor="email-input" className="input-with-icon">
             <FaEnvelope className="icon" />
@@ -78,7 +75,7 @@ function Login() {
               type="text"
               id="email-input"
               value={userData.username}
-              placeholder="Email"
+              placeholder="Cadastre um email"
               onChange={
                 ({ target }) => setUserData({ ...userData, username: target.value })
               }
@@ -91,7 +88,7 @@ function Login() {
               type="password"
               id="password-input"
               value={userData.password}
-              placeholder="Senha"
+              placeholder="Cadastre uma senha"
               onChange={({ target }) => setUserData({
                 ...userData, password: target.value,
               })}
@@ -104,16 +101,16 @@ function Login() {
                 !(emailValidation.test(userData.username)
                   && userData.password.length >= MIN_PASSWORD_LENGTH)
               }
-              onClick={handleLogin}
+              onClick={handleRegister}
             >
               Entrar
             </button>
           </div>
         </div>
-        <Link to="/register">Não possui login? Cadastre-se aqui</Link>
+        <Link to="/login">Já possui uma conta? Faça o login</Link>
       </div>
     </main>
   )
 }
 
-export default Login
+export default Register

@@ -12,9 +12,11 @@ function CartProvider({ children }) {
     return storedQuantities ? JSON.parse(storedQuantities) : {};
   });
 
+  const [isCheckout, setIsCheckout] = useState(false)
+
   console.log(quantities);
 
-  const maxQuantity = 5; // Defina a quantidade máxima permitida
+  const maxQuantity = 5; //quantidade máxima permitida
 
   const addToCart = useCallback(async (productId) => {
     try {
@@ -160,9 +162,13 @@ function CartProvider({ children }) {
       Swal.fire({
         position: "bottom-end",
         title: "Quantidade máxima atingida para este produto",
-        icon: "error",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+        customClass: {
+          popup: 'swal2-small',
+          title: 'swal2-title-small',
+          container: 'swal2-container',
+        }
       });
     }
   }, [quantities, maxQuantity, setQuantities]);
@@ -209,8 +215,10 @@ function CartProvider({ children }) {
     increaseQuantity,
     decreaseQuantity,
     addToCart,
-    removeCartItem
-  }), [cart, loading, isCartOpen, setIsCartOpen, quantities, setQuantities, increaseQuantity, decreaseQuantity, addToCart, removeCartItem]);
+    removeCartItem,
+    isCheckout,
+    setIsCheckout
+  }), [cart, loading, isCartOpen, setIsCartOpen, quantities, setQuantities, increaseQuantity, decreaseQuantity, addToCart, removeCartItem, isCheckout, setIsCheckout]);
 
   return (
     <CartContext.Provider value={values}>
