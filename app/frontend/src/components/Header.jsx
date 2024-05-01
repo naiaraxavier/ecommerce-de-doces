@@ -2,19 +2,35 @@ import ScrollContext from '../context/ScrollContext';
 import CartContext from '../context/CartContext';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdPerson } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 import { useContext } from 'react';
 import "../css/header.css";
+import AuthContext from '../context/AuthContext';
 
 function Header() {
   const { setScrollToSection } = useContext(ScrollContext);
   const { isCartOpen, setIsCartOpen, quantities } = useContext(CartContext);
+  const { isProfileBtnOpen, setIsProfileBtnOpen, isAuthenticated } = useContext(AuthContext)
 
   const sumItens = Object.values(quantities).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  const navigate = useNavigate();
 
   const handleCartClick = () => {
     setIsCartOpen(!isCartOpen);
+    if (isProfileBtnOpen) {
+      setIsProfileBtnOpen(false)
+    }
+  };
+
+  const handleProfileClick = () => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
+      setIsProfileBtnOpen(!isProfileBtnOpen)
+    } else {
+      setIsProfileBtnOpen(false)
+      navigate('/login');
+    }
   };
 
   return (
@@ -34,11 +50,11 @@ function Header() {
           onClick={handleCartClick}
         />
         {sumItens > 0 && <span className="cart-item-count">{sumItens}</span>}
-        <Link to="/login">
-          <MdPerson
-            className="icon-header"
-          />
-        </Link>
+
+        <MdPerson
+          className="icon-header"
+          onClick={handleProfileClick}
+        />
       </div>
     </header>
   )

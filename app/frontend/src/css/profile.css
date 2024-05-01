@@ -1,0 +1,86 @@
+.main-profile {
+  display: flex;
+  margin-top: 200px;
+  justify-content: center;
+  height: 100vh;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin: 3em 1em;
+  padding: 1em;
+}
+
+.nameCliente span {
+  color: #dc6786;
+}
+
+.nameCliente {
+  margin-bottom: 0.7em;
+}
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.line {
+  width: 100%;
+  border: none;
+  border-top: 1px solid black;
+  margin-top: 10px;
+}
+
+.history {
+  height: 400px;
+}
+
+.form-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
+}
+
+.form-profile input {
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 290px;
+  height: 60px;
+}
+
+#obs {
+  width: 100%;
+}
+
+.div-form label,
+.div-form input {
+  margin-right: 10px;
+}
+
+.btn-profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+}
+
+.btn-profile button {
+  background-color: #dc6786;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 255px;
+  height: 55px;
+}
+
+.btn-profile button:hover {
+  background-color: #e487a0;
+  width: 256px;
+  height: 56px;
+}

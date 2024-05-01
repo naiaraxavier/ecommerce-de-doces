@@ -77,7 +77,7 @@
   margin: 1rem 0;
 }
 
-.btn-finalize a {
+.btn-finalize button {
   background-color: #ff90ae;
   border-radius: 10px;
   box-shadow: 3px 3px 3px #808080;
@@ -89,7 +89,7 @@
   text-transform: uppercase;
 }
 
-.btn-finalize a:hover {
+.btn-finalize button:hover {
   background-color: #f89eb6;
   padding: 13px 31px;
 }
