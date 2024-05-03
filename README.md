@@ -87,7 +87,7 @@ docker-compose up -d
 ## 👩🏽‍💻 Back-end
 
 <div style="text-align:center;">
-    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 800px; height: auto; margin-bottom: 20px; display: block;">
+    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 360px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 <div style="text-align:center;">
