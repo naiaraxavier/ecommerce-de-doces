@@ -1,0 +1,72 @@
+.main-contacts {
+  display: flex;
+  justify-content: center;
+  margin-top: 9em;
+  height: 60vh;
+}
+
+.content-contacts {
+  background-color: #ffe5deed;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.contacts {
+  align-self: center;
+  color: #242424;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts img {
+  animation: sway 4s ease-in-out infinite;
+  align-self: center;
+  width: 280px;
+  margin-bottom: 1.5em;
+}
+
+.contacts .i {
+  color: #dc6786;
+  font-size: 40px;
+  margin-right: 1em;
+}
+
+.contacts p,
+.contacts div {
+  margin: 0.2em 0em;
+}
+
+@keyframes sway {
+
+  0% {
+    transform: rotateZ(-2deg);
+  }
+
+  50% {
+    transform: rotateZ(2deg);
+  }
+
+  100% {
+    transform: rotateZ(-2deg);
+  }
+}
+
+
+.social-contacts {
+  align-self: center;
+  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-contacts a {
+  color: #dc6786;
+  margin: 0.4em 0em;
+}
+
+.social-contacts a:hover {
+  color: #e42255;
+}

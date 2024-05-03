@@ -99,7 +99,7 @@ function Checkout() {
           </div>
           <div className="container-summary">
             <div className="summary">
-              <h2 className="h2-checkout">Sumáro de <span>compras</span></h2>
+              <h2 className="h2-checkout">Sumário de <span>compras</span></h2>
 
               <div>
 

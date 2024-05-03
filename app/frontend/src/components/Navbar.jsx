@@ -28,7 +28,9 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a href="#contacts"> Contatos </a>
+          <Link to="/contacts" onClick={() => window.scrollTo(0, 0)}>
+            Contatos
+          </Link>
         </li>
       </ul>
     </nav>
