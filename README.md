@@ -1,4 +1,4 @@
-# E-commerce de Doces 🍰🧁🍩 (em construção 🚧 🏗️)
+# E-commerce de Doces 🍰🧁🍩
 
 Este é um projeto em construção de um e-commerce de doces. Abaixo estão as instruções sobre como executar o frontend e o back-end localmente e via Docker.
 
