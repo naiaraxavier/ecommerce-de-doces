@@ -83,9 +83,15 @@ docker-compose up -d
 ## 👩🏽‍💻 Back-end
 
 <div style="text-align:center;">
-    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 360px; height: auto; margin-bottom: 20px; display: block;">
-    <img src="./img/db.png" alt="Banco de dados" style="width: 360px; height: auto; margin-bottom: 20px; display: block;">
-    <img src="./img/api.png" alt="API" style="width: 360px; height: auto; margin-bottom: 20px; display: block;">
+    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 400px; height: auto; margin-bottom: 20px; display: block;">
+</div>
+
+<div style="text-align:center;">
+    <img src="./img/db.png" alt="Banco de dados" style="width: 400px; height: auto; margin-bottom: 20px; display: block;">
+</div>
+
+<div style="text-align:center;">
+    <img src="./img/api.png" alt="API" style="width: 400px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 ### Tecnologias Utilizadas:
