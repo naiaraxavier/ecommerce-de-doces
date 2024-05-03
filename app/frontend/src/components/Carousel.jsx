@@ -1,10 +1,11 @@
 import { useRef, useContext, useEffect, useState } from 'react';
 import ProductsContext from '../context/ProductsContext';
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading"
 import "../css/carousel.css"
 
 function Carousel() {
-  const { products } = useContext(ProductsContext);
+  const { products, loading } = useContext(ProductsContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
 
@@ -31,30 +32,34 @@ function Carousel() {
     }, 4000); //4 segundos
 
     return () => clearInterval(intervalId); // Limpa o intervalo quando o componente é desmontado
-  }, [currentIndex, products.length]);
+  }, [currentIndex, products]);
 
-  if (!products || !products.length) return null;
+  if (!products || !products.length) return [];
 
   return (
     <div className="container">
       <div className="carousel" ref={carousel}>
-        {products.map((product, index) => (
-          <div
-            key={index}
-            className="item"
-          >
-            <img src={product.image} alt={product.name} />
-            <div className="info">
-              <div>
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <Link to="/products">
-                  <button>Ver produtos</button>
-                </Link>
+        {loading ? (
+          <Loading />
+        ) : (
+          products.map((product, index) => (
+            <div
+              key={index}
+              className="item"
+            >
+              <img src={product.image} alt={product.name} />
+              <div className="info">
+                <div>
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <Link to="/products">
+                    <button>Ver produtos</button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <div className="buttons">
         <button className="prev" onClick={handleLeftClick}>

@@ -73,6 +73,7 @@
   width: 50%;
   height: 100%;
   float: right;
+  object-fit: cover;
 }
 
 .buttons {
