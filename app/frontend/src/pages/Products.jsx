@@ -7,6 +7,7 @@ import Header from "../components/Header"
 import Navbar from "../components/Navbar"
 import Footer from '../components/Footer';
 import { FaSearch } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 import "../css/products.css"
 
 function Products() {
@@ -52,7 +53,9 @@ function Products() {
             ) : (
               <div className="product-list">
                 {filteredProducts.map((product, index) => (
-                  <CardProduct key={index} product={product} />
+                  <Link to={`/products/${product.id}`} key={index}>
+                    <CardProduct key={index} product={product} />
+                  </Link>
                 ))}
               </div>
             )}

@@ -13,6 +13,8 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import AuthContext from './context/AuthContext';
 import BtnProfile from './components/BtnProfile';
+import Contacts from './pages/Contacts';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   const { isCartOpen } = useContext(CartContext);
@@ -30,6 +32,8 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
       </Routes>
       {isCartOpen && <Cart />}
       {isProfileBtnOpen && <BtnProfile />}
