@@ -10,9 +10,7 @@ Este é um projeto em construção de um e-commerce de doces. Abaixo estão as i
 - **Framework Front-end:** React.js
 - **Ferramenta de Build:** Vite
 - **Linguagem de Programação:** JavaScript
-- **Framework CSS:** Bootstrap
 - **Estilização:** CSS
-- **Outras bibliotecas adicionais.**
 
 ## Preparando Ambiente
 
@@ -78,7 +76,6 @@ docker-compose up -d
 - **Framework Web:** Flask
 - **ORM (Object-Relational Mapping):** Flask-SQLAlchemy
 - **Autenticação de Usuários:** Flask-Login
-- **Cross-Origin Resource Sharing (CORS):** Flask-Cors
 - **Biblioteca de manipulação de URLs:** Werkzeug
 
 ## Preparando Ambiente

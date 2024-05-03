@@ -1,78 +1,71 @@
-import { useContext, useState, useEffect } from 'react';
+import { useRef, useContext, useEffect, useState } from 'react';
 import ProductsContext from '../context/ProductsContext';
 import { Link } from "react-router-dom";
-import Loading from './Loading';
-import "../css/carousel.css";
+import "../css/carousel.css"
 
 function Carousel() {
-  const { products, loading } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const carousel = useRef(null);
+
+  const handleLeftClick = (e) => {
+    e.preventDefault();
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  };
+
+  const handleRightClick = (e) => {
+    e.preventDefault();
+
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  };
 
   useEffect(() => {
-    const transitionEndHandler = () => {
-      setIsTransitioning(false);
-    };
-    const slideContainer = document.querySelector('.slide-container');
-    slideContainer.addEventListener('transitionend', transitionEndHandler);
-    return () => {
-      slideContainer.removeEventListener('transitionend', transitionEndHandler);
-    };
-  }, []);
+    const intervalId = setInterval(() => {
+      if (currentIndex === products.length - 1) {
+        carousel.current.scrollLeft = 0; // Volta para o início do carrossel
+        setCurrentIndex(0); // Reinicia o índice
+      } else {
+        carousel.current.scrollLeft += carousel.current.offsetWidth;
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      }
+    }, 4000); //4 segundos
 
-  const goToPreviousSlide = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? products.length - 1 : prevIndex - 1));
-    }
-  };
+    return () => clearInterval(intervalId); // Limpa o intervalo quando o componente é desmontado
+  }, [currentIndex, products.length]);
 
-  const goToNextSlide = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => (prevIndex === products.length - 1 ? 0 : prevIndex + 1));
-    }
-  };
+  if (!products || !products.length) return null;
 
   return (
-    <div className="carousel">
-      <div className="slide-container">
-        {loading ? (
-          <Loading loading={loading} />
-        ) : (
-          <>
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="slide"
-                style={{
-                  transform: `translateX(${(index - currentIndex) * 100}%)`,
-                  opacity: index === currentIndex ? 1 : 0,
-                }}
-              >
-                <img src={product.image} alt={product.name} />
-                <div className="caption">
-                  <div>
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <Link to="/products">
-                      <button>Ver produtos</button>
-                    </Link>
-                  </div>
-                </div>
+    <div className="container">
+      <div className="carousel" ref={carousel}>
+        {products.map((product, index) => (
+          <div
+            key={index}
+            className="item"
+          >
+            <img src={product.image} alt={product.name} />
+            <div className="info">
+              <div>
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <Link to="/products">
+                  <button>Ver produtos</button>
+                </Link>
               </div>
-            ))}
-          </>
-        )}
+            </div>
+          </div>
+        ))}
       </div>
-      <button className="prev" onClick={goToPreviousSlide}>
-        &#10094;
-      </button>
-      <button className="next" onClick={goToNextSlide}>
-        &#10095;
-      </button>
+      <div className="buttons">
+        <button className="prev" onClick={handleLeftClick}>
+          &#10094;
+        </button>
+        <button className="next" onClick={handleRightClick}>
+          &#10095;
+        </button>
+      </div>
     </div>
   )
 }
 
-export default Carousel;
+export default Carousel
