@@ -5,14 +5,28 @@ Este é um projeto em construção de um e-commerce de doces. Abaixo estão as i
 ----
 ## 🖥️ Front-end
 
+<div style="text-align:center;">
+    <div style="margin-bottom: 20px;">
+        <img src="./img/tela-inicial.gif" alt="Tela Inicial" style="width: 600px; height: auto; display: block;">
+    </div>
+    <div style="margin-bottom: 20px;">
+        <img src="./img/products.gif" alt="Produtos" style="width: 300px; height: auto;">
+        <img src="./img/login.gif" alt="Login" style="width: 300px; height: auto;">
+    </div>
+    <div style="margin-bottom: 20px;">
+        <img src="./img/checkout.png" alt="Checkout" style="width: 600px; height: auto; display: block;">
+    </div>
+    <div style="margin-bottom: 20px;">
+        <img src="./img/footer.png" alt="Checkout" style="width: 600px; height: auto; display: block;">
+    </div>
+</div>
+
 ### Tecnologias Utilizadas:
 
 - **Framework Front-end:** React.js
 - **Ferramenta de Build:** Vite
 - **Linguagem de Programação:** JavaScript
-- **Framework CSS:** Bootstrap
 - **Estilização:** CSS
-- **Outras bibliotecas adicionais.**
 
 ## Preparando Ambiente
 
@@ -72,13 +86,24 @@ docker-compose up -d
 ----
 ## 👩🏽‍💻 Back-end
 
+<div style="text-align:center;">
+    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 800px; height: auto; margin-bottom: 20px; display: block;">
+</div>
+
+<div style="text-align:center;">
+    <img src="./img/db.png" alt="Banco de dados" style="width: 800px; height: auto; margin-bottom: 20px; display: block;">
+</div>
+
+<div style="text-align:center;">
+    <img src="./img/api.png" alt="API" style="width: 800px; height: auto; margin-bottom: 20px; display: block;">
+</div>
+
 ### Tecnologias Utilizadas:
 
 - **Linguagem de Programação:** Python 🐍
 - **Framework Web:** Flask
 - **ORM (Object-Relational Mapping):** Flask-SQLAlchemy
 - **Autenticação de Usuários:** Flask-Login
-- **Cross-Origin Resource Sharing (CORS):** Flask-Cors
 - **Biblioteca de manipulação de URLs:** Werkzeug
 
 ## Preparando Ambiente
