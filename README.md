@@ -7,13 +7,13 @@ Este é um projeto em construção de um e-commerce de doces. Abaixo estão as i
 
 <div style="text-align:center;">
     <div style="margin-bottom: 20px;">
-        <img src="./img/tela-inicial.gif" alt="Tela Inicial" style="width: 400px; height: auto; display: block;">
+        <img src="./img/tela-inicial.gif" alt="Tela Inicial" style="width: 600px; height: auto; display: block;">
     </div>
     <div style="margin-bottom: 20px;">
-        <img src="./img/products.gif" alt="Produtos" style="width: 400px; height: auto; display: block;">
+        <img src="./img/products.gif" alt="Produtos" style="width: 600px; height: auto; display: block;">
     </div>
     <div style="margin-bottom: 20px;">
-        <img src="./img/login.gif" alt="Login" style="width: 400px; height: auto; display: block;">
+        <img src="./img/login.gif" alt="Login" style="width: 600px; height: auto; display: block;">
     </div>
 </div>
 
@@ -83,15 +83,15 @@ docker-compose up -d
 ## 👩🏽‍💻 Back-end
 
 <div style="text-align:center;">
-    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 400px; height: auto; margin-bottom: 20px; display: block;">
+    <img src="./img/add-product.gif" alt="Thunder Client" style="width: 600px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 <div style="text-align:center;">
-    <img src="./img/db.png" alt="Banco de dados" style="width: 400px; height: auto; margin-bottom: 20px; display: block;">
+    <img src="./img/db.png" alt="Banco de dados" style="width: 600px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 <div style="text-align:center;">
-    <img src="./img/api.png" alt="API" style="width: 400px; height: auto; margin-bottom: 20px; display: block;">
+    <img src="./img/api.png" alt="API" style="width: 600px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 ### Tecnologias Utilizadas:
