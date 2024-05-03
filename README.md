@@ -13,6 +13,12 @@ Este é um projeto em construção de um e-commerce de doces. Abaixo estão as i
         <img src="./img/products.gif" alt="Produtos" style="width: 300px; height: auto;">
         <img src="./img/login.gif" alt="Login" style="width: 300px; height: auto;">
     </div>
+    <div style="margin-bottom: 20px;">
+        <img src="./img/checkout.png" alt="Checkout" style="width: 600px; height: auto; display: block;">
+    </div>
+    <div style="margin-bottom: 20px;">
+        <img src="./img/footer.png" alt="Checkout" style="width: 600px; height: auto; display: block;">
+    </div>
 </div>
 
 ### Tecnologias Utilizadas:
