@@ -21,6 +21,7 @@
 }
 
 .product-content {
+  color: #000;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -51,6 +52,11 @@
 .product-content div {
   display: flex;
   justify-content: space-between;
+}
+
+.product-content h3,
+.product-content p {
+  color: #000;
 }
 
 .btn-in-de {
