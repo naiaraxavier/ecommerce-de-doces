@@ -91,7 +91,7 @@ docker-compose up -d
 </div>
 
 <div style="text-align:center;">
-    <img src="./img/back.png" alt="Banco de dados" style="width: 1000px; height: auto; margin-bottom: 20px; display: block;">
+    <img src="./img/back.png" alt="Thunder Client" style="width: 1000px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 <div style="text-align:center;">
@@ -100,6 +100,10 @@ docker-compose up -d
 
 <div style="text-align:center;">
     <img src="./img/api.png" alt="API" style="width: 1000px; height: auto; margin-bottom: 20px; display: block;">
+</div>
+
+<div style="text-align:center;">
+    <img src="./img/codigo.png" alt="Codigo" style="width: 1000px; height: auto; margin-bottom: 20px; display: block;">
 </div>
 
 ### Tecnologias Utilizadas:
