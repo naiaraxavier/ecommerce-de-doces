@@ -3,6 +3,11 @@
 Este é um projeto em construção de um e-commerce de doces. Abaixo estão as instruções sobre como executar o frontend e o back-end localmente e via Docker.
 
 ----
+### Entrevista com a Empreendedora do Petit Four (Gabrielly Hammes):
+
+[Ouça o áudio 🔊](./img/Entrevista_com_a_cliente.mp3)
+
+----
 ## 🖥️ Front-end
 
 <div style="text-align:center;">
